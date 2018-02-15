@@ -1,0 +1,15 @@
+<nav class='menu' *ngIf="exibirMenu()">
+
+  <mat-toolbar color='primary'>
+    <span class='light'>{{ nomeUsuario }}</span>
+  </mat-toolbar>
+  <div>
+    <a mat-button routerLink="/usuarios" routerLinkActive="active">Listar Usuários</a>
+  </div>
+  <div>
+    <a mat-button routerLink="usuarios/cadastro" routerLinkActive="active">Criar Usuário</a>
+  </div>
+  <div>
+    <a mat-button (click)="onLogout()" routerLinkActive="active">Sair</a>
+  </div>
+</nav>

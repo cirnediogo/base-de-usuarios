@@ -1,0 +1,99 @@
+
+<mat-toolbar color='primary'>
+  <span>Cadastro de Usuário</span>
+</mat-toolbar>
+
+<div class='content'>
+  
+  <form class="form-horizontal"
+    #formTemplate="ngForm" (ngSubmit)="onSubmit(formTemplate)">
+
+    <div class="form-group">
+
+      <mat-form-field>
+        <input matInput type="text" class="form-control" 
+          id="nome" [ngModel]="usuario?.nome" 
+          name="nome" required #inputNome="ngModel"
+          placeholder="Nome">
+      </mat-form-field>
+      <mat-error *ngIf="isCampoInvalido(inputNome)">
+          Nome é <strong>obrigatório</strong>.
+      </mat-error>
+
+    </div>
+
+    <div class="form-group">
+        
+      <mat-form-field>
+        <input matInput type="email" class="form-control" 
+          id="email" [ngModel]="usuario?.email" 
+          name="email" required email #inputEmail="ngModel"
+          placeholder="E-mail">
+      </mat-form-field>
+      <mat-error *ngIf="isCampoInvalido(inputEmail)">
+          E-mail é <strong>obrigatório</strong>.
+      </mat-error>
+      <mat-error *ngIf="isCampoInvalido(inputEmail, 'email')">
+          E-mail inválido.
+      </mat-error>
+      
+    </div>
+    
+    <div class="form-group">
+
+      <mat-form-field>
+        <input matInput type="text" class="form-control" 
+          id="nomeUsuario" [ngModel]="usuario?.nomeUsuario" 
+          name="nomeUsuario" required #inputNomeUsuario="ngModel"
+          placeholder="Nome de usuário">
+      </mat-form-field>
+      <mat-error *ngIf="isCampoInvalido(inputNomeUsuario)">
+          Nome de usuário é <strong>obrigatório</strong>.
+      </mat-error>
+
+      <mat-form-field>
+        <mat-select placeholder="Perfil" [ngModel]="usuario?.perfil"
+          name="perfil" required #inputPerfil="ngModel">
+          <mat-option *ngFor="let perfil of getPerfisUsuario()" [value]="perfil">
+            {{ perfil | perfilUsuario }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-error *ngIf="isCampoInvalido(inputPerfil)">
+          Perfil é <strong>obrigatório</strong>.
+      </mat-error>
+
+    </div>
+    
+    <div class="form-group">
+
+      <mat-form-field>
+        <input matInput type="password" class="form-control" 
+          id="senha" [ngModel]="usuario?.senha" 
+          name="senha" required #inputSenha="ngModel"
+          password placeholder="Senha">
+      </mat-form-field>
+      <mat-error *ngIf="isCampoInvalido(inputSenha)">
+          Senha é <strong>obrigatória</strong>.
+      </mat-error>
+      
+      <mat-form-field>
+        <input matInput type="password" class="form-control" 
+          id="senhaConfirm" [ngModel]="" 
+          name="senhaConfirm" required #inputSenhaConfirm="ngModel"
+          password placeholder="Confirme a senha">
+      </mat-form-field>
+      <mat-error *ngIf="isSenhaInvalida(inputSenha, inputSenhaConfirm)">
+          Senhas não conferem.
+      </mat-error>
+
+    </div>
+    
+    <button mat-raised-button type="submit" color="primary"
+      [disabled]="formTemplate.invalid || isSenhaInvalida(inputSenha, inputSenhaConfirm)">
+      Salvar
+    </button>
+
+  </form>
+
+</div>
