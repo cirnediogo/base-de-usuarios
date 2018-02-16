@@ -5,41 +5,56 @@
 
 <div class='content'>
 
-  <mat-table #table [dataSource]="dataSource">
+  <div class="table-container mat-elevation-z8">
+    <div class="table-filter">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar usuário">
+      </mat-form-field>
+    </div>
 
-    <ng-container matColumnDef="nome">
-      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-      <mat-cell *matCellDef="let usuario"> {{ usuario.nome }} </mat-cell>
-    </ng-container>
+    <mat-table #table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
-      <mat-cell *matCellDef="let usuario"> {{ usuario.email }} </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let usuario"> {{ usuario.nome }} </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="nomeUsuario">
-      <mat-header-cell *matHeaderCellDef> Nome de usuário </mat-header-cell>
-      <mat-cell *matCellDef="let usuario"> {{ usuario.nomeUsuario }} </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+        <mat-cell *matCellDef="let usuario"> {{ usuario.email }} </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="perfil">
-      <mat-header-cell *matHeaderCellDef> Perfil </mat-header-cell>
-      <mat-cell *matCellDef="let usuario"> {{ usuario.perfil | perfilUsuario }} </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="nomeUsuario">
+        <mat-header-cell *matHeaderCellDef> Nome de usuário </mat-header-cell>
+        <mat-cell *matCellDef="let usuario"> {{ usuario.nomeUsuario }} </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="opcoes">
-      <mat-header-cell *matHeaderCellDef> Opções </mat-header-cell>
-      <mat-cell *matCellDef="let usuario">
-        <a mat-raised-button color="primary" 
-          routerLink="{{ 'cadastro/' + usuario.id }}" routerLinkActive="active">
-          Editar
-        </a>
-      </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="perfil">
+        <mat-header-cell *matHeaderCellDef> Perfil </mat-header-cell>
+        <mat-cell *matCellDef="let usuario"> {{ usuario.perfil | perfilUsuario }} </mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="atributosTabela"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: atributosTabela;"></mat-row>
+      <ng-container matColumnDef="opcoes">
+        <mat-header-cell *matHeaderCellDef> Opções </mat-header-cell>
+        <mat-cell *matCellDef="let usuario">
+          <a mat-raised-button color="primary" 
+            routerLink="{{ 'cadastro/' + usuario.id }}" routerLinkActive="active">
+            Editar
+          </a>
+        </mat-cell>
+      </ng-container>
 
-  </mat-table>
+      <mat-header-row *matHeaderRowDef="atributosTabela"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: atributosTabela;"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+    </mat-paginator>
+
+  </div>
 
 </div>

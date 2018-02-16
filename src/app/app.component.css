@@ -8,8 +8,5 @@ mat-sidenav-container {
 
 mat-sidenav {
     width: 200px;
-    -moz-box-shadow:    -3px 0 10px 0 #555;
-    -webkit-box-shadow: -3px 0 10px 0 #555;
-    box-shadow:         -3px 0 10px 0 #555;
 }
   

@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatPaginatorModule
   ],
   providers: [
     UsuarioService,
