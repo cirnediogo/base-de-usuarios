@@ -7,8 +7,6 @@ import { Usuario } from './usuario.model';
 @Injectable()
 export class UsuarioService {
 
-  // usuarioSessao: Usuario;
-
   constructor() { }
 
   getUsuarios() {
@@ -24,6 +22,9 @@ export class UsuarioService {
       usuarioSessao.nomeUsuario = usuario.nomeUsuario;
       usuarioSessao.senha = null;
       usuarioSessao.perfil = usuario.perfil;
+      usuarioSessao.nome = usuario.nome;
+      usuarioSessao.email = usuario.email;
+      usuarioSessao.id = usuario.id;
       return Promise.resolve({
         'mensagem': 'Usuário logado com sucesso',
         'usuario': usuarioSessao
@@ -52,12 +53,19 @@ export class UsuarioService {
 
   save(usuario: Usuario) {
     if (usuario.id) {
-      let usuarioCadastrado = USUARIOS.find(usuarioInMemory => usuarioInMemory.id == usuario.id);
-      if (usuarioCadastrado) {
-        usuarioCadastrado = usuario;
-      } else {
-        this.create(usuario);
-      }
+      USUARIOS.find(usuarioInMemory => {
+        if (usuarioInMemory.id == usuario.id) {
+          const index = USUARIOS.indexOf(usuarioInMemory);
+          USUARIOS[index] = usuario;
+          return true;
+        }
+        return false;
+      });
+      // if (usuarioCadastrado) {
+      //   usuarioCadastrado = usuario;
+      // } else {
+      //   this.create(usuario);
+      // }
     } else {
       this.create(usuario);
     }

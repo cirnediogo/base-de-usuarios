@@ -17,10 +17,6 @@ export class MenuComponent implements OnInit {
     this.nomeUsuario = this.authService.getNomeUsuario();
   }
 
-  exibirMenu(): boolean  {
-    return this.authService.isAutenticado();
-  }
-
   exibirCriar(): boolean  {
     return this.authService.isAdmin();
   }

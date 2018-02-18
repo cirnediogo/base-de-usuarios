@@ -1,8 +1,45 @@
-div.example-container {
-    display: flex;
-    flex-direction: column;
+
+form.form-horizontal {
+    background-color: white;
+    padding: 20px 10px;
 }
 
-.example-container > * {
+.col-6, .col-12 {
+    float: left;
+}
+
+.col-6 > div, .col-12 > div {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.col-12 {
     width: 100%;
+}
+
+.col-6 {
+    width: 50%;
+}
+    
+mat-form-field {
+    width: 100%;
+}
+
+form.form-horizontal .footer {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.form-element-error {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    font-size: 75%;
+    margin-top: .54167em;
+    top: calc(100% - 2px);
+    color: #f44336;
+    font-weight: 400;
+    line-height: 1.125;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
 }

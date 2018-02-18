@@ -37,7 +37,7 @@
       <ng-container matColumnDef="opcoes">
         <mat-header-cell *matHeaderCellDef> Opções </mat-header-cell>
         <mat-cell *matCellDef="let usuario">
-          <a mat-raised-button color="primary" 
+          <a mat-raised-button color="primary" class="button-inline"
             routerLink="{{ 'cadastro/' + usuario.id }}" routerLinkActive="active">
             Editar
           </a>

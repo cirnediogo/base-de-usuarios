@@ -1,4 +1,4 @@
-<nav class='menu' *ngIf="exibirMenu()">
+<nav class='menu'>
 
   <mat-toolbar color='primary'>
     <span class='light'>{{ nomeUsuario }}</span>
@@ -7,7 +7,10 @@
     <a mat-button routerLink="/usuarios" routerLinkActive="active">Listar Usuários</a>
   </div>
   <div>
-    <a mat-button routerLink="usuarios/cadastro" routerLinkActive="active">Criar Usuário</a>
+    <a mat-button routerLink="usuarios/cadastro" routerLinkActive="active"
+      [disabled]="!exibirCriar()">
+      Criar Usuário
+    </a>
   </div>
   <div>
     <a mat-button (click)="onLogout()" routerLinkActive="active">Sair</a>

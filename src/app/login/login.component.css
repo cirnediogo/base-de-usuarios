@@ -1,0 +1,24 @@
+div.login-container {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+div.login-container form mat-form-field {
+    width: 100%;
+}
+
+div.login-container form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+div.login-container div.form-element-error {
+    margin-top: .54167em;
+    color: #f44336;
+    font-weight: 400;
+    line-height: 1.125;
+    margin-bottom: 20px;
+}

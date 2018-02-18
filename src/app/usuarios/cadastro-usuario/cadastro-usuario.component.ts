@@ -29,10 +29,9 @@ export class CadastroUsuarioComponent implements OnInit {
           this.usuarioService.findById(params['id'])
             .then(res => {
               this.usuario = res.usuario;
-              console.log('editando usuario ', JSON.stringify(this.usuario));
             })
             .catch(err => {
-              console.log('editando usuario ', err);
+              console.error('editando usuario ', err);
             });
         }
       }
@@ -40,14 +39,10 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   onSubmit(form) {
-    console.log(form);
     form.value.id = this.usuario.id;
     this.usuario = new Usuario(form.value);
     this.usuarioService.save(this.usuario);
     this.router.navigateByUrl('/usuarios');
-    // this.http.post('http://httpbin.org/post', JSON.stringify(form.value))
-    //   .map(res => res)
-    //   .subscribe(dados => console.log(dados));
   }
 
   isCampoInvalido(campo, parametro) {
@@ -60,7 +55,8 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   isSenhaInvalida(campoSenha, campoSenhaConfirm) {
-    return campoSenhaConfirm.touched && campoSenhaConfirm.value !== campoSenha.value;
+    const invalida = campoSenhaConfirm.touched && (campoSenhaConfirm.value !== campoSenha.value);
+    return invalida;
   }
 
   getPerfisUsuario() {

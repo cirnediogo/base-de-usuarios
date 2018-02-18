@@ -1,14 +1,36 @@
 
-<h1>Login</h1>
+<div class="login-container">
 
-<form (ngSubmit)="onLogin()" novalidate>
-  <div class="form-group">
-    <label for="nome-usuario">Nome de usuário</label>
-    <input type="text" class="form-control" id="nomeUsuario" placeholder="Digite o nome de Usuário" [(ngModel)]="usuario.nomeUsuario" name="nome-usuario" required>
+  <h1>Login</h1>
+    
+  <div class="form-element-error" >
+    <div class="mensagem">
+      {{ mensagem }}
+    </div>
   </div>
-  <div class="form-group">
-    <label for="senha">Senha</label>
-    <input type="password" class="form-control" id="senha" placeholder="Digite a senha" [(ngModel)]="usuario.senha" name="senha" required>
-  </div>
-  <button type="submit" class="btn btn-default">Entrar</button>
-</form>
+
+  <form (ngSubmit)="onLogin()" #formTemplate="ngForm" novalidate>
+
+    <mat-form-field>
+      <input matInput type="text" class="form-control" id="nomeUsuario" [(ngModel)]="usuario.nomeUsuario" name="nome-usuario" required
+        #inputNomeUsuario="ngModel" placeholder="Nome de usuário">
+        <mat-error>
+          Digite o nome de usuário.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" class="form-control" id="senha" [(ngModel)]="usuario.senha" name="senha" required #inputSenha="ngModel"
+        password placeholder="Senha">
+      <mat-error>
+        Digite a senha.
+      </mat-error>
+    </mat-form-field>
+    
+    <button mat-raised-button type="submit" color="primary" [disabled]="formTemplate.invalid">
+      Entrar
+    </button>
+
+  </form>
+
+</div>

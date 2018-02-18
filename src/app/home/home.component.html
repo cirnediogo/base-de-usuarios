@@ -1,3 +1,8 @@
-<p>
-  Bem vindo à Base de Usuários.
-</p>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" *ngIf="exibirMenu()" opened class="mat-elevation-z8">
+    <app-menu></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

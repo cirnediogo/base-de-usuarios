@@ -22,3 +22,9 @@
     overflow: auto;
     max-height: 500px;
 }
+
+a.button-inline {
+    height: 32px;
+    font-size: 14px;
+    padding: 0 5px;
+}

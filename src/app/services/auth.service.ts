@@ -13,7 +13,6 @@ export class AuthService {
   login(usuario: Usuario, callback) {
     this.usuarioService.login(usuario)
     .then(res => {
-      console.log(JSON.stringify(res));
       this.usuarioSessao = res.usuario;
       callback({'autenticado': true});
     })
@@ -28,13 +27,11 @@ export class AuthService {
   }
 
   isAutenticado(): boolean {
-    return true;
-    // return (this.usuarioSessao !== undefined);
+    return (this.usuarioSessao !== undefined);
   }
 
   isAdmin(): boolean {
-    return true;
-    // return (this.usuarioSessao !== undefined && this.usuarioSessao.perfil === PerfilUsuario.ADMIN);
+    return (this.usuarioSessao !== undefined && this.usuarioSessao.perfil === PerfilUsuario.ADMIN);
   }
 
   getNomeUsuario(): string {

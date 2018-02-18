@@ -1,27 +1,37 @@
-# BaseDeUsuarios
+# Base de Usuários
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+## Preparando o ambiente
 
-## Development server
+Verificar se o Node.js e npm estão instalados, caso contrário, proceder com a [instalação] (https://nodejs.org/en/download/) antes de continuar.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Se necessário, instalar o Angular CLI através do commando:
 
-## Code scaffolding
+```
+npm install -g @angular/cli
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Executar a aplicação diretamente do CLI
 
-## Build
+Primeiro, instalar as dependências do projeto, vá até a pasta raíz e execute:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```
+npm install
+```
 
-## Running unit tests
+Para executar a aplicação, utilize o comando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+ng serve
+```
 
-## Running end-to-end tests
+A aplicação estará disponível em `http://localhost:4200/`. Para fazer o login utilize o nome de usuário `admin`e senha `admin`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Criar os arquivos da aplicação
 
-## Further help
+Para simplesmente criar os arquivos da aplicação, execute:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+ng build -prod
+```
+
+Os arquivos serão criados no diretório `dist/`.
