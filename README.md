@@ -10,13 +10,13 @@ Se necessário, instalar o Angular CLI através do comando:
 npm install -g @angular/cli
 ```
 
-## Executar a aplicação diretamente do CLI
-
-Primeiro, instalar as dependências do projeto, vá até a pasta raíz e execute:
+Para preparar a aplicação, é necessário instalar as dependências do projeto, para isso vá até a pasta raíz e execute:
 
 ```
 npm install
 ```
+
+## Executar a aplicação diretamente do CLI
 
 Para executar a aplicação, utilize o comando:
 
@@ -31,7 +31,7 @@ A aplicação estará disponível em `http://localhost:4200/`. Para fazer o logi
 Para simplesmente criar os arquivos da aplicação, execute:
 
 ```
-ng build -prod
+ng build
 ```
 
 Os arquivos serão criados no diretório `dist/`, coloque-os em um servidor para executá-los. Para fazer o login utilize o nome de usuário `admin` e senha `admin`.
