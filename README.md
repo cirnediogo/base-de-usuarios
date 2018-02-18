@@ -24,7 +24,7 @@ Para executar a aplicação, utilize o comando:
 ng serve
 ```
 
-A aplicação estará disponível em `http://localhost:4200/`. Para fazer o login utilize o nome de usuário `admin`e senha `admin`.
+A aplicação estará disponível em `http://localhost:4200/`. Para fazer o login utilize o nome de usuário `admin` e senha `admin`.
 
 ## Criar os arquivos da aplicação
 
