@@ -4,7 +4,7 @@
 
 Verificar se o Node.js e npm estão instalados, caso contrário, proceder com a [instalação](https://nodejs.org/en/download/) antes de continuar.
 
-Se necessário, instalar o Angular CLI através do commando:
+Se necessário, instalar o Angular CLI através do comando:
 
 ```
 npm install -g @angular/cli
@@ -34,4 +34,4 @@ Para simplesmente criar os arquivos da aplicação, execute:
 ng build -prod
 ```
 
-Os arquivos serão criados no diretório `dist/`.
+Os arquivos serão criados no diretório `dist/`, coloque-os em um servidor para executá-los. Para fazer o login utilize o nome de usuário `admin` e senha `admin`.
