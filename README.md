@@ -2,7 +2,7 @@
 
 ## Preparando o ambiente
 
-Verificar se o Node.js e npm estão instalados, caso contrário, proceder com a [instalação] (https://nodejs.org/en/download/) antes de continuar.
+Verificar se o Node.js e npm estão instalados, caso contrário, proceder com a [instalação](https://nodejs.org/en/download/) antes de continuar.
 
 Se necessário, instalar o Angular CLI através do commando:
 
